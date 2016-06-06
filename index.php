@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<u><h3 class="text-center">Gestion du Rob Ellul</h3></u><hr />
+		<u><h3 href="index.php" class="text-center">Gestion du Rob Ellul</h3></u><hr />
 			<br>
 			<div class="panel panel-success col-lg-7">
 			  <div class="panel-heading">
@@ -23,7 +23,7 @@
 				<h3 class="panel-title">Panel de contrôle</h3>
 			  </div>
 			  <div class="panel-body">
-				<p>Pilote automatique : <div class="error">NONE</div></p>
+				<p>Pilote automatique : <div class="error">INCONNU</div></p>
 				<button href="#" target="_blank" id="little_up_left">&#x2196;</button>
 				<button href="#" target="_blank" id="up">&#x2191;</button>
 				<button href="#" target="_blank" id="little_up_right">&#x2197;</button>
@@ -44,7 +44,7 @@
 				<h3 class="panel-title">Panel d'etat</h3>
 			  </div>
 			  <div class="panel-body">
-				<p>Etat : <div class="error">NONE</div></p>
+				<p>Etat : <div class="error">INCONNU</div></p>
 				<p>Batterie : 
 					<div class="alert alert-dismissible alert-danger">
 					  <button type="button" class="close" data-dismiss="alert">&times;</button>
