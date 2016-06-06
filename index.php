@@ -11,7 +11,7 @@
 			<br>
 			<div class="panel panel-success col-lg-7">
 			  <div class="panel-heading">
-				<h3 class="panel-title">Panel vitesse</h3>
+				<h3 class="panel-title">Panel vitesse</h3> 
 			  </div>
 			  <div class="panel-body">
 				<p>Vitesse : <div class="success">50%</div></p>
