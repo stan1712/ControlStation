@@ -10,96 +10,95 @@
 			include('config.php');
 			include('scripts/states.php');
 		?>
-		<h3 class="text-center"><?php echo $nickname; ?> control station</h3><hr />
-		<br>
-		<div class="card text-white bg-info mb-3">
-			<div class="card-header">Control panel</div>
-			<div class="card-body">
-				<h4 class="card-title">Cockpit</h4>
-				<p><?php
-					$autopilot = "true";
+		<div class="container">
+			<h3 class="text-center"><?php echo $nickname; ?> control station</h3><hr />
+			<br>
+		
+			<div class="card border-primary mb-3">
+				<div class="card-header">Control panel</div>
+				<div class="card-body">
+					<h4 class="card-title">Cockpit</h4>
+					<p><?php
+						$autopilot = "true";
 
-					if($autopilot == "true") {
-					echo "The discovery mode is activated.";
-					}
-					elseif($autopilot == "false") {
-					echo "The discovery mode is deactivated.";
-					}
-					else{
-					echo "The discorvery mode is unavailable or missing, please take manual controls";
-					}
-				?></p>
+						if($autopilot == "true") {
+						echo "The discovery mode is activated.";
+						}
+						elseif($autopilot == "false") {
+						echo "The discovery mode is deactivated.";
+						}
+						else{
+						echo "The discorvery mode is unavailable or missing, please take manual controls";
+						}
+					?></p>
 
-				<ul class="nav nav-tabs">
-					<li class="nav-item">
-						<a class="nav-link active" data-toggle="tab" href="#autopilot">Discovery mode / Auto pilot</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#manual">Manual mode</a>
-					</li>
-				</ul>
-				<div id="myTabContent" class="tab-content">
-					<div class="tab-pane fade show active" id="autopilot">
-						<p>Into the void</p>
-					</div>
-					<div class="tab-pane fade" id="manual">
-						<div class="panel-body">
-							<button href="#" target="_blank" id="little_up_left">&#x2196;</button>
-							<button href="#" target="_blank" id="up">&#x2191;</button>
-							<button href="#" target="_blank" id="little_up_right">&#x2197;</button>
-							<br />
-							<button href="#" target="_blank" id="left">&#x2190;</button>
-							<button href="#" target="_blank" id="stop">&#x2715;</button>
-							<button href="#" target="_blank" id="right">&#x2192;</button>
-							<br />
-							<button href="#" target="_blank" id="little_down_left">&#x2199;</button>
-							<button href="#" target="_blank" id="down">&#x2193;</button>
-							<button href="#" target="_blank" id="little_down_right">&#x2198;</button>
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#autopilot">Discovery mode / Auto pilot</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#manual">Manual mode</a>
+						</li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade show active" id="autopilot">
+							<p>Into the void</p>
+						</div>
+						<div class="tab-pane fade" id="manual">
+							<div class="panel-body">
+								<button href="#" target="_blank" id="little_up_left">&#x2196;</button>
+								<button href="#" target="_blank" id="up">&#x2191;</button>
+								<button href="#" target="_blank" id="little_up_right">&#x2197;</button>
+								<br />
+								<button href="#" target="_blank" id="left">&#x2190;</button>
+								<button href="#" target="_blank" id="stop">&#x2715;</button>
+								<button href="#" target="_blank" id="right">&#x2192;</button>
+								<br />
+								<button href="#" target="_blank" id="little_down_left">&#x2199;</button>
+								<button href="#" target="_blank" id="down">&#x2193;</button>
+								<button href="#" target="_blank" id="little_down_right">&#x2198;</button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+			<div class="card border-primary mb-3">
+				<div class="card-header"><?php echo $nickname; ?>'s ETA</div>
+				<div class="card-body">
+					<h4 class="card-title">State : </h4><p>
+					<?php
+					if ($echo == 0) {
+						echo "N/A";
+					} elseif ($echo == 1) {
+						echo "Available";
+					} elseif ($echo == 2) {
+						echo "Unavailable";
+					} else {
+						echo "N/A";
+					}
+					?>
+					</p>
 
-		<div class="card text-white bg-info mb-3">
-			<div class="card-header"><?php echo $nickname; ?>'s ETA</div>
-			<div class="card-body">
+					<h4 class="card-title">Speed :</h4>
+					<p><?php echo $speed, " m/s"; ?></p>
 
-				<h4 class="card-title">State : </h4><p><?php
-				if ($echo == 0) {
-					echo "N/A";
-				}
-				elseif ($echo == 1) {
-					echo "Available";
-				}
-				elseif ($echo == 2) {
-					echo "Unavailable";
-				}
-				else {
-					echo "N/A";
-				}
-				?></p>
-				<h4 class="card-title">Speed :</h4>
-				<p><?php echo $speed," m/s"; ?></p>
+					<h4 class="card-title">Battery :</h4>
+					<?php
+					$battery = 57;
 
-				<h4 class="card-title">Battery :</h4>
-				<?php
 					if ($battery < 0) {
 						include('include/errorprogressbar.php');
-					}
-					elseif ($battery < 15) {
+					} elseif ($battery < 15) {
 						include('include/15progressbar.php');
-					}
-					elseif ($battery < 30) {
+					} elseif ($battery < 30) {
 						include('include/30progressbar.php');
-					}
-					elseif ($battery <= 100) {
+					} elseif ($battery <= 100) {
 						include('include/100progressbar.php');
-					}
-					elseif ($battery > 100) {
+					} elseif ($battery > 100) {
 						include('include/errorprogressbar.php');
 					}
-				?>
+					?>
+				</div>
 			</div>
 		</div>
 	<body>
